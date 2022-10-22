@@ -1,0 +1,13 @@
+{
+  "name": "samuraibs-tests",
+  "version": "1.0.0",
+  "description": "Projetos de testes de aceitação de ponta a ponta Cypress",
+  "main": "index.js",
+  "author": "Rodrigo Canton",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "6.3.1",
+    "cypress": "9.7.0",
+    "pg": "^8.7.3"
+  }
+}
