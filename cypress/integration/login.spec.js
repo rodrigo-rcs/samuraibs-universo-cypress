@@ -9,18 +9,7 @@ describe('login', function () {
         const user = { name: 'Robson Jassa', email: 'jassa@samuraibs.com', password: 'pwd123', is_provider: true }
 
         before(function () {
-            cy.task('removeUser', user.email)
-                .then(function (result) {
-                    console.log(result)
-                })
-
-            cy.request(
-                'POST',
-                'http://localhost:3333/users',
-                user
-            ).then(function (response) {
-                expect(response.status).to.eq(200)
-            })
+            cy.postUser(user)
         })
 
         it('deve logar com sucesso', function () {
