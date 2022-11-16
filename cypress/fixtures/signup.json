@@ -1,0 +1,23 @@
+{
+  "sucess": {
+    "name": "Rodrigo Canton",
+    "email": "rodrigo.rcs@gmail.com",
+    "password": "123456"
+  },
+  "email_dup": {
+    "name": "João Lucas",
+    "email": "joao@samuraibs.com",
+    "password": "pwd123",
+    "is_provider": true
+  },
+  "email_inv":{
+    "name": "Elisabeth Olsen",
+    "email": "lisa.yahoo.com",
+    "password": "pwd123"   
+  },
+  "short_password": { 
+    "name": "Jason Friday", 
+    "email": "json@gmail.com", 
+    "password": null 
+  }
+}

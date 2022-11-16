@@ -12,6 +12,7 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
+//const { resolve } = require('cypress/types/bluebird')
 const { Pool } = require('pg')
 
 /**
@@ -26,17 +27,29 @@ module.exports = (on, config) => {
 
   const pool = new Pool(configJson.dbConfig)
 
-  on('task',{
+  on('task', {
     removeUser(email) {
-      return new Promise(function(resolve){
-        pool.query('DELETE FROM public.users WHERE email = $1', [email], function(error, result){
+      return new Promise(function (resolve) {
+        pool.query('DELETE FROM public.users WHERE email = $1', [email], function (error, result) {
           if (error) {
             throw error
           }
-          resolve({success: result})
+          resolve({ success: result })
         })
       })
+    },
+    findToken(email) {
+      return new Promise(function (resolve) {
+        pool.query('SELECT B.token FROM public.users A INNER JOIN public.user_tokens B ' +
+          'ON A.id = B.user_id WHERE A.email = $1 ORDER BY B.created_at', [email], function (error, result) {
+            if (error) {
+              throw error
+            }
+            resolve({ token: result.rows[0].token })
+          })
+      })
     }
+
   })
 
 }
