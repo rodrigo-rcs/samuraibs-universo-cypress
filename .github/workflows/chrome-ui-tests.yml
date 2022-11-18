@@ -28,7 +28,7 @@ jobs:
           site: https://samuraibs-api-rodrigocs.herokuapp.com
 
       - name: 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v4.x.x # use the explicit version number
+        uses: cypress-io/github-action@v2 # use the explicit version number
         with:
           # we have already installed all dependencies above
           install-command: yarn install
